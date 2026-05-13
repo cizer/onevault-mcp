@@ -21,16 +21,12 @@ npm run build-index
 - Incremental filesystem watching
 - Tested manually via stdio
 
-## Next Steps
+## Configuration
 
-### Option 1: Use Desktop App (Recommended)
+### Claude Code CLI
 
-Claude Code Desktop app reads MCP config from:
-```
-~/Library/Application Support/Claude/claude_desktop_config.json
-```
+Add to `~/.claude/mcp.json`:
 
-Add the onevault server there:
 ```json
 {
   "mcpServers": {
@@ -47,20 +43,29 @@ Add the onevault server there:
 }
 ```
 
-Then restart the desktop app.
+**Note**: Configuration must be in `~/.claude/mcp.json`, not `~/.claude.json`.
 
-### Option 2: Package as a Plugin
+### Claude Code Desktop App
 
-Wrap the MCP server in a Claude Code plugin with an `.mcp.json` manifest. Plugins can register MCP servers that the CLI will load.
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
-1. Create `.claude-plugin/` directory structure
-2. Add `manifest.json` with plugin metadata
-3. Add `.mcp.json` with server definition
-4. Install via local marketplace
+```json
+{
+  "mcpServers": {
+    "onevault": {
+      "command": "/path/to/onevault-mcp/src/index.js",
+      "args": [],
+      "env": {
+        "VAULT_PATH": "/path/to/your/ObsidianVault",
+        "DB_PATH": "/path/to/onevault-mcp/vault.db",
+        "EXCLUDE_DIRS": ".obsidian,.trash"
+      }
+    }
+  }
+}
+```
 
-### Option 3: Wait for CLI MCP Support
-
-The CLI may add support for `~/.claude/mcp.json` in a future release.
+Then restart Claude Code.
 
 ## Manual Testing
 
