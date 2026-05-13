@@ -2,6 +2,17 @@
 
 MCP server providing semantic search over your Obsidian vault via SQLite FTS5 and wiki-link graph traversal.
 
+## Installation
+
+```bash
+git clone https://github.com/cizer/onevault-mcp.git
+cd onevault-mcp
+npm install
+cp .env.example .env
+# Edit .env with your vault path
+npm run build-index
+```
+
 ## Status
 
 ✅ Server implemented and tested  
@@ -30,12 +41,12 @@ Add the onevault server there:
 {
   "mcpServers": {
     "onevault": {
-      "command": "/Users/richie.mackay/Projects/onevault-mcp/src/index.js",
+      "command": "/path/to/onevault-mcp/src/index.js",
       "args": [],
       "env": {
-        "VAULT_PATH": "/Users/richie.mackay/Documents/OneVault",
-        "DB_PATH": "/Users/richie.mackay/Projects/onevault-mcp/vault.db",
-        "EXCLUDE_DIRS": ".obsidian,.trash,obsidian-inbox-processor/.venv,assets"
+        "VAULT_PATH": "/path/to/your/ObsidianVault",
+        "DB_PATH": "/path/to/onevault-mcp/vault.db",
+        "EXCLUDE_DIRS": ".obsidian,.trash"
       }
     }
   }
@@ -94,7 +105,7 @@ console.log(getContextForTopic('AI agent orchestration risks', { limit: 8 }));
 ## Repo Structure
 
 ```
-~/Projects/onevault-mcp/        ← git repo (version controlled)
+onevault-mcp/                   ← git repo (version controlled)
 ├── src/
 │   ├── index.js               ← MCP server entry point
 │   ├── config.js              ← Environment configuration
@@ -104,8 +115,9 @@ console.log(getContextForTopic('AI agent orchestration risks', { limit: 8 }));
 │   ├── search.js              ← FTS5 + link graph queries
 │   └── watcher.js             ← Filesystem watcher
 ├── package.json
-├── .env                        ← Vault path config (gitignored)
-└── vault.db                    ← SQLite index (gitignored)
+├── .env.example               ← Template for environment variables
+├── .env                       ← Your vault path config (gitignored)
+└── vault.db                   ← SQLite index (gitignored)
 ```
 
-Vault itself (`~/Documents/OneVault/`) is **not under version control** — only the tooling is tracked.
+Your vault is **not under version control** — only the indexing tooling is tracked.

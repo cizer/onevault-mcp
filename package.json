@@ -7,6 +7,21 @@
   "bin": {
     "onevault-mcp": "src/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cizer/onevault-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "obsidian",
+    "vault",
+    "search",
+    "fts5",
+    "sqlite",
+    "model-context-protocol"
+  ],
+  "author": "Richie Mackay",
+  "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
     "build-index": "node src/build-index.js",
