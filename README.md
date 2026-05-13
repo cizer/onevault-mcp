@@ -13,13 +13,7 @@ cp .env.example .env
 npm run build-index
 ```
 
-## Status
-
-✅ Server implemented and tested  
-✅ Database indexed (818 notes, 2,114 links)  
-❌ **Not yet working with Claude Code CLI** — user-defined MCP servers in `~/.claude/mcp.json` may not be supported by the CLI (v2.1.140)
-
-## What Works
+## Features
 
 - Full-text search with FTS5 ranking
 - Wiki-link graph traversal (1-2 hops)
