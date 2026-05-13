@@ -1,5 +1,7 @@
 # OneVault MCP Server
 
+![OneVault MCP Hero](assets/hero.svg)
+
 MCP server providing semantic search over your Obsidian vault via SQLite FTS5 and wiki-link graph traversal.
 
 ## Installation
