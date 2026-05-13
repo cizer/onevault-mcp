@@ -37,7 +37,7 @@ Add to `~/.claude/mcp.json`:
       "args": [],
       "env": {
         "VAULT_PATH": "/path/to/your/ObsidianVault",
-        "DB_PATH": "/path/to/onevault-mcp/vault.db",
+        "DB_PATH": "/path/to/your/ObsidianVault/.onevault-mcp/vault.db",
         "EXCLUDE_DIRS": ".obsidian,.trash"
       }
     }
@@ -59,7 +59,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
       "args": [],
       "env": {
         "VAULT_PATH": "/path/to/your/ObsidianVault",
-        "DB_PATH": "/path/to/onevault-mcp/vault.db",
+        "DB_PATH": "/path/to/your/ObsidianVault/.onevault-mcp/vault.db",
         "EXCLUDE_DIRS": ".obsidian,.trash"
       }
     }
