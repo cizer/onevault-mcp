@@ -1,0 +1,5 @@
+node_modules/
+vault.db
+vault.db-wal
+vault.db-shm
+.env

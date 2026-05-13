@@ -1,0 +1,26 @@
+{
+  "name": "onevault-mcp",
+  "version": "0.1.0",
+  "description": "MCP server providing semantic search over an Obsidian vault via SQLite FTS5 and link graph traversal",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "onevault-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "build-index": "node src/build-index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "better-sqlite3": "^11.8.2",
+    "chokidar": "^4.0.3",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
+}
