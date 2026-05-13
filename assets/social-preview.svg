@@ -1,0 +1,214 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient definitions -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F172A;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.8" />
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for connections -->
+    <filter id="connectionGlow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong title glow -->
+    <filter id="titleGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bgGradient)"/>
+
+  <!-- Grid pattern overlay -->
+  <g opacity="0.03">
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#94A3B8" stroke-width="1"/>
+    </pattern>
+    <rect width="1280" height="640" fill="url(#grid)"/>
+  </g>
+
+  <!-- Knowledge Graph Network (Left side) - Scaled and repositioned -->
+  <g opacity="0.9" transform="translate(50, 80)">
+    <!-- Connection lines with gradient -->
+    <line x1="120" y1="180" x2="200" y2="120" stroke="#06B6D4" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="120" y1="180" x2="180" y2="280" stroke="#3B82F6" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="200" y1="120" x2="300" y2="150" stroke="#3B82F6" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="180" y1="280" x2="280" y2="320" stroke="#8B5CF6" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="200" y1="120" x2="260" y2="220" stroke="#06B6D4" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="300" y1="150" x2="260" y2="220" stroke="#3B82F6" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="260" y1="220" x2="280" y2="320" stroke="#8B5CF6" stroke-width="2.5" opacity="0.6" filter="url(#connectionGlow)"/>
+    <line x1="120" y1="180" x2="260" y2="220" stroke="#06B6D4" stroke-width="3" opacity="0.8" filter="url(#connectionGlow)"/>
+
+    <!-- Graph nodes (knowledge notes) -->
+    <!-- Center hub node -->
+    <circle cx="120" cy="180" r="18" fill="url(#nodeGradient)" filter="url(#glow)"/>
+    <circle cx="120" cy="180" r="14" fill="#1E293B" opacity="0.8"/>
+    <circle cx="120" cy="180" r="7" fill="#06B6D4"/>
+
+    <!-- Connected nodes -->
+    <circle cx="200" cy="120" r="14" fill="#3B82F6" opacity="0.7"/>
+    <circle cx="200" cy="120" r="10" fill="#1E293B" opacity="0.6"/>
+
+    <circle cx="180" cy="280" r="14" fill="#8B5CF6" opacity="0.7"/>
+    <circle cx="180" cy="280" r="10" fill="#1E293B" opacity="0.6"/>
+
+    <circle cx="300" cy="150" r="12" fill="#06B6D4" opacity="0.6"/>
+    <circle cx="300" cy="150" r="8" fill="#1E293B" opacity="0.5"/>
+
+    <circle cx="280" cy="320" r="12" fill="#3B82F6" opacity="0.6"/>
+    <circle cx="280" cy="320" r="8" fill="#1E293B" opacity="0.5"/>
+
+    <!-- Main connection node -->
+    <circle cx="260" cy="220" r="16" fill="url(#nodeGradient)" filter="url(#glow)"/>
+    <circle cx="260" cy="220" r="12" fill="#1E293B" opacity="0.7"/>
+    <circle cx="260" cy="220" r="6" fill="#3B82F6"/>
+
+    <!-- Smaller peripheral nodes -->
+    <circle cx="350" cy="120" r="10" fill="#8B5CF6" opacity="0.5"/>
+    <circle cx="330" cy="350" r="10" fill="#06B6D4" opacity="0.5"/>
+    <circle cx="70" cy="120" r="10" fill="#3B82F6" opacity="0.5"/>
+    <circle cx="80" cy="320" r="10" fill="#8B5CF6" opacity="0.5"/>
+  </g>
+
+  <!-- Center Icon - MCP Protocol Bridge - Scaled and repositioned -->
+  <g transform="translate(500, 200)">
+    <!-- Left vault -->
+    <rect x="0" y="20" width="70" height="90" rx="5" fill="#1E293B" stroke="url(#accentGradient)" stroke-width="2.5" opacity="0.8"/>
+    <line x1="18" y1="42" x2="52" y2="42" stroke="#3B82F6" stroke-width="2.5" opacity="0.6"/>
+    <line x1="18" y1="60" x2="52" y2="60" stroke="#06B6D4" stroke-width="2.5" opacity="0.6"/>
+    <line x1="18" y1="78" x2="42" y2="78" stroke="#8B5CF6" stroke-width="2.5" opacity="0.6"/>
+
+    <!-- Connection flow -->
+    <g filter="url(#glow)">
+      <path d="M 75 65 L 115 65" stroke="url(#accentGradient)" stroke-width="4" opacity="0.9"/>
+      <circle cx="88" cy="65" r="5" fill="#06B6D4"/>
+      <circle cx="102" cy="65" r="5" fill="#3B82F6"/>
+      <path d="M 115 65 L 122 58 M 115 65 L 122 72" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- MCP Server hexagon - Larger -->
+    <g transform="translate(155, 65)">
+      <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13"
+               fill="#1E293B" stroke="url(#accentGradient)" stroke-width="3" filter="url(#glow)"/>
+      <text x="0" y="6" text-anchor="middle" fill="url(#accentGradient)" font-family="monospace" font-size="15" font-weight="bold">MCP</text>
+    </g>
+
+    <!-- Right connection to search -->
+    <g filter="url(#glow)">
+      <path d="M 193 65 L 233 65" stroke="url(#accentGradient)" stroke-width="4" opacity="0.9"/>
+      <circle cx="206" cy="65" r="5" fill="#8B5CF6"/>
+      <circle cx="220" cy="65" r="5" fill="#3B82F6"/>
+      <path d="M 233 65 L 240 58 M 233 65 L 240 72" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Right side - Search/Index visualization - Scaled and repositioned -->
+  <g transform="translate(900, 130)">
+    <!-- Search magnifying glass with FTS5 -->
+    <g filter="url(#glow)">
+      <circle cx="90" cy="120" r="48" fill="none" stroke="url(#accentGradient)" stroke-width="3.5"/>
+      <circle cx="90" cy="120" r="42" fill="#1E293B" opacity="0.6"/>
+      <line x1="124" y1="154" x2="154" y2="184" stroke="url(#accentGradient)" stroke-width="7" stroke-linecap="round"/>
+    </g>
+
+    <!-- FTS5 text inside magnifying glass -->
+    <text x="90" y="113" text-anchor="middle" fill="#06B6D4" font-family="monospace" font-size="17" font-weight="bold">FTS5</text>
+    <text x="90" y="133" text-anchor="middle" fill="#8B5CF6" font-family="monospace" font-size="12">SEARCH</text>
+
+    <!-- Index lines radiating -->
+    <g opacity="0.6">
+      <line x1="55" y1="85" x2="20" y2="45" stroke="#06B6D4" stroke-width="2.5"/>
+      <line x1="90" y1="72" x2="90" y2="25" stroke="#3B82F6" stroke-width="2.5"/>
+      <line x1="125" y1="85" x2="160" y2="45" stroke="#8B5CF6" stroke-width="2.5"/>
+
+      <!-- Small data nodes -->
+      <circle cx="20" cy="45" r="6" fill="#06B6D4" opacity="0.8"/>
+      <circle cx="90" cy="25" r="6" fill="#3B82F6" opacity="0.8"/>
+      <circle cx="160" cy="45" r="6" fill="#8B5CF6" opacity="0.8"/>
+    </g>
+
+    <!-- Document stack below -->
+    <g transform="translate(40, 220)" opacity="0.7">
+      <rect x="0" y="0" width="100" height="5" rx="2.5" fill="#3B82F6"/>
+      <rect x="0" y="10" width="100" height="5" rx="2.5" fill="#06B6D4"/>
+      <rect x="0" y="20" width="100" height="5" rx="2.5" fill="#8B5CF6"/>
+      <rect x="0" y="30" width="75" height="5" rx="2.5" fill="#3B82F6" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Title text - More prominent and better positioned -->
+  <g>
+    <text x="640" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="72" font-weight="900" fill="url(#accentGradient)" filter="url(#titleGlow)">
+      OneVault MCP
+    </text>
+    <text x="640" y="510" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="26" font-weight="500" fill="#94A3B8" letter-spacing="3">
+      SEMANTIC SEARCH FOR OBSIDIAN VAULTS
+    </text>
+  </g>
+
+  <!-- Decorative corner elements -->
+  <g opacity="0.3">
+    <!-- Top left corner -->
+    <line x1="0" y1="50" x2="50" y2="50" stroke="#06B6D4" stroke-width="2.5"/>
+    <line x1="50" y1="0" x2="50" y2="50" stroke="#06B6D4" stroke-width="2.5"/>
+
+    <!-- Top right corner -->
+    <line x1="1230" y1="50" x2="1280" y2="50" stroke="#8B5CF6" stroke-width="2.5"/>
+    <line x1="1230" y1="0" x2="1230" y2="50" stroke="#8B5CF6" stroke-width="2.5"/>
+
+    <!-- Bottom right corner -->
+    <line x1="1230" y1="590" x2="1280" y2="590" stroke="#3B82F6" stroke-width="2.5"/>
+    <line x1="1230" y1="590" x2="1230" y2="640" stroke="#3B82F6" stroke-width="2.5"/>
+
+    <!-- Bottom left corner -->
+    <line x1="0" y1="590" x2="50" y2="590" stroke="#06B6D4" stroke-width="2.5"/>
+    <line x1="50" y1="590" x2="50" y2="640" stroke="#06B6D4" stroke-width="2.5"/>
+  </g>
+
+  <!-- Subtle particle effects - more distributed -->
+  <g opacity="0.4">
+    <circle cx="480" cy="100" r="2.5" fill="#06B6D4"/>
+    <circle cx="780" cy="110" r="2.5" fill="#3B82F6"/>
+    <circle cx="400" cy="540" r="2.5" fill="#8B5CF6"/>
+    <circle cx="880" cy="550" r="2.5" fill="#06B6D4"/>
+    <circle cx="180" cy="560" r="2.5" fill="#3B82F6"/>
+    <circle cx="1120" cy="140" r="2.5" fill="#8B5CF6"/>
+    <circle cx="560" cy="180" r="2.5" fill="#06B6D4"/>
+    <circle cx="720" cy="190" r="2.5" fill="#8B5CF6"/>
+  </g>
+
+  <!-- Additional accent glow around title area -->
+  <g opacity="0.15">
+    <ellipse cx="640" cy="480" rx="400" ry="80" fill="url(#accentGradient)" filter="url(#glow)"/>
+  </g>
+</svg>
