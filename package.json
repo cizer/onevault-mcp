@@ -1,7 +1,7 @@
 {
   "name": "onevault-mcp",
   "version": "0.1.0",
-  "description": "MCP server providing semantic search over an Obsidian vault via SQLite FTS5 and link graph traversal",
+  "description": "MCP server providing fast search and context assembly over Markdown knowledge bases",
   "type": "module",
   "main": "src/index.js",
   "bin": {
@@ -13,8 +13,10 @@
   },
   "keywords": [
     "mcp",
+    "markdown",
     "obsidian",
-    "vault",
+    "knowledge-base",
+    "corpus",
     "search",
     "fts5",
     "sqlite",

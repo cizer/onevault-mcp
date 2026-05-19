@@ -6,7 +6,7 @@ import { getStats } from "./search.js";
 import { closeDb } from "./db.js";
 
 async function main() {
-  console.log(`Vault: ${config.vaultPath}`);
+  console.log(`Corpus: ${config.vaultPath}`);
   console.log(`Database: ${config.dbPath}`);
   console.log("Building index...");
 

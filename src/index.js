@@ -18,7 +18,7 @@ const server = new McpServer({
 
 server.tool(
   "search_vault",
-  "Full-text search over the Obsidian vault. Returns ranked results with snippets. Use for finding specific notes or content matching keywords.",
+  "Full-text search over the configured Markdown corpus. Returns ranked results with snippets. Use for finding specific notes, docs, or content matching keywords.",
   {
     query: z.string().describe("Search terms (natural language or FTS5 syntax)"),
     limit: z.number().optional().default(10).describe("Maximum results to return"),
@@ -49,7 +49,7 @@ server.tool(
 
 server.tool(
   "expand_context",
-  "Follow wiki-links from a seed note to find related context. Traverses the link graph 1-2 hops outward, returning connected notes with their relationship type (outgoing link, incoming link, 2nd hop).",
+  "Follow wiki-style links from a seed Markdown file to find related context. Traverses the link graph 1-2 hops outward, returning connected notes or docs with their relationship type (outgoing link, incoming link, 2nd hop).",
   {
     note_path: z
       .string()
@@ -126,7 +126,7 @@ server.tool(
 
 server.tool(
   "vault_stats",
-  "Get statistics about the vault index: note count, link count, and top tags.",
+  "Get statistics about the Markdown corpus index: note count, link count, and top tags.",
   {},
   async () => {
     const stats = getStats();
@@ -135,7 +135,7 @@ server.tool(
       content: [
         {
           type: "text",
-          text: `Vault index stats:\n- Notes: ${stats.noteCount}\n- Links: ${stats.linkCount}\n\nTop tags:\n${tagList}`,
+          text: `Corpus index stats:\n- Notes: ${stats.noteCount}\n- Links: ${stats.linkCount}\n\nTop tags:\n${tagList}`,
         },
       ],
     };
@@ -144,7 +144,7 @@ server.tool(
 
 server.tool(
   "reindex_vault",
-  "Force a full reindex of the vault. Use if the index seems stale or after bulk file operations.",
+  "Force a full reindex of the Markdown corpus. Use if the index seems stale or after bulk file operations.",
   {},
   async () => {
     const count = await fullReindex();
@@ -157,7 +157,7 @@ server.tool(
 // --- Startup ---
 
 async function main() {
-  console.error(`[onevault-mcp] Vault: ${config.vaultPath}`);
+  console.error(`[onevault-mcp] Corpus: ${config.vaultPath}`);
   console.error(`[onevault-mcp] Database: ${config.dbPath}`);
 
   // Build initial index

@@ -29,6 +29,7 @@ function loadEnv() {
 loadEnv();
 
 export const config = {
+  // VAULT_PATH is retained for compatibility, but it may point at any Markdown corpus.
   vaultPath: process.env.VAULT_PATH,
   dbPath: process.env.DB_PATH || resolve(projectRoot, "vault.db"),
   excludeDirs: (process.env.EXCLUDE_DIRS || ".obsidian,.trash")
