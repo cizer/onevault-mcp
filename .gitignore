@@ -1,5 +1,4 @@
 node_modules/
-vault.db
-vault.db-wal
-vault.db-shm
+vault.db*
 .env
+.DS_Store
