@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/Users/richie.mackay/.nvm/versions/node/v24.12.0/bin/node
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
