@@ -27,6 +27,7 @@
   "scripts": {
     "start": "node src/index.js",
     "build-index": "node src/build-index.js",
+    "web": "./src/web.js",
     "dev": "node --watch src/index.js"
   },
   "dependencies": {

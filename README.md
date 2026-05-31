@@ -23,6 +23,7 @@ npm run build-index
 - Wiki-link graph traversal (1-2 hops), with Obsidian-style links supported
 - Topic context assembly (search + links + tags)
 - Incremental filesystem watching
+- Optional Google-style web search UI (`npm run web`)
 - Tested manually via stdio
 
 ## Configuration
@@ -123,6 +124,31 @@ console.log(getContextForTopic('AI agent orchestration risks', { limit: 8 }));
 
 Tool names still use `vault` for compatibility with existing clients. Treat `vault` as "the configured Markdown corpus."
 
+## Web Search UI
+
+A Google-style search page over the same FTS5 index the MCP server uses. It reuses `src/search.js` and the same database, so results match the `search_vault` tool. Useful when you want to browse and click through your corpus in a browser rather than through an MCP client.
+
+```bash
+npm run web
+# then open http://127.0.0.1:4321
+```
+
+- Live search with ranked, highlighted snippets
+- Filter by top-level folder or by tag
+- Keyboard navigation (`/` to focus, arrow keys to move, Enter to open, Esc to clear)
+- Results deep-link to the source note (Obsidian `obsidian://` links by default)
+- Light/dark theme, bookmarkable query URLs
+- Binds to `127.0.0.1` only and sends `noindex`, so the page is never exposed on the network
+
+Environment variables:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `ONEVAULT_WEB_PORT` | `4321` | Port to listen on |
+| `OBSIDIAN_VAULT` | corpus folder name | Vault name used when building `obsidian://` deep links |
+
+The index is shared with the MCP server (and its watcher), so results stay current. The page also exposes a "refresh index" action that runs the same full reindex as `reindex_vault`. To keep the UI always available, run it under a process manager (launchd on macOS, systemd on Linux), pinned to the same Node version your `better-sqlite3` binary was built against.
+
 ## Obsidian Support
 
 OneVault has first-class support for Obsidian vaults:
@@ -152,7 +178,10 @@ onevault-mcp/                   ← git repo (version controlled)
 │   ├── indexer.js             ← Full & incremental indexing
 │   ├── parser.js              ← Markdown + frontmatter parser
 │   ├── search.js              ← FTS5 + link graph queries
-│   └── watcher.js             ← Filesystem watcher
+│   ├── watcher.js             ← Filesystem watcher
+│   ├── web.js                 ← Local web search server (npm run web)
+│   └── web/
+│       └── index.html         ← Google-style search page
 ├── package.json
 ├── .env.example               ← Template for environment variables
 ├── .env                       ← Your corpus path config (gitignored)
