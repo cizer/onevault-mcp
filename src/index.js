@@ -157,6 +157,7 @@ server.tool(
 // --- Startup ---
 
 async function main() {
+  console.error("[onevault-mcp] DEPRECATED: this project is no longer maintained and has been superseded by Hebb.");
   console.error(`[onevault-mcp] Corpus: ${config.vaultPath}`);
   console.error(`[onevault-mcp] Database: ${config.dbPath}`);
 

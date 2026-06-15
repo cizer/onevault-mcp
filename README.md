@@ -2,11 +2,20 @@
 
 ![OneVault MCP Hero](assets/hero.svg)
 
+> [!WARNING]
+> OneVault MCP is no longer maintained. It has been superseded by [Hebb](https://github.com/cizer/hebb).
+>
+> New users should use [Hebb](https://github.com/cizer/hebb) instead. This repository remains available only for legacy installations and historical reference.
+
 MCP server providing fast search and context assembly over Markdown knowledge bases via SQLite FTS5, frontmatter parsing, tags, and link graph traversal.
 
 It works well for Obsidian vaults, docs repositories, ADR/RFC collections, static-site content, and other Markdown-heavy corpora. Obsidian is the first-class profile: wiki links such as `[[Note Title]]`, note-style tags, and `.obsidian` exclusions are supported out of the box.
 
-## Installation
+## Status
+
+OneVault MCP is deprecated and will not receive new features, compatibility updates, or routine maintenance. Existing users may keep using it at their own discretion, but should plan to migrate to [Hebb](https://github.com/cizer/hebb).
+
+## Legacy Installation
 
 ```bash
 git clone https://github.com/cizer/onevault-mcp.git
